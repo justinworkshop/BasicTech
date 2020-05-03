@@ -1,2 +1,2 @@
-include ':app', ':argorithmlib'
+include ':app', ':argorithmlib', ':annotation'
 rootProject.name='BasicTech'
