@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".params_inject.ParseParamsActivity" />
+        <activity android:name=".click_inject.InjectClickEventActivity" />
     </application>
 
 </manifest>

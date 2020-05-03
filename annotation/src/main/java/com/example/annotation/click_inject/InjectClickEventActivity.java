@@ -1,27 +1,29 @@
-package com.example.annotation;
+package com.example.annotation.click_inject;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.annotation.click_inject.InjectClickEventActivity;
+import com.example.annotation.R;
 import com.example.annotation.click_inject.InjectUtils;
 import com.example.annotation.click_inject.annotation.OnClick;
 import com.example.annotation.click_inject.annotation.OnLongClick;
-import com.example.annotation.params_inject.ParseParamsActivity;
-import com.example.annotation.params_inject.annotation.UserInfo;
 
-import java.util.ArrayList;
-
-public class MainActivity extends AppCompatActivity {
+/**
+ * Copyright (C), 2016-2020
+ * FileName: InjectClickEventActivity
+ * Author: zhengwei
+ * Date: 2020-05-03 18:07
+ * Description: 点击事件注入测试页面
+ */
+public class InjectClickEventActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_click_inject);
 
         InjectUtils.injectEvent(this);
     }
@@ -31,22 +33,10 @@ public class MainActivity extends AppCompatActivity {
         String text = "";
         switch (view.getId()) {
             case R.id.btn1:
-                ArrayList<UserInfo> list = new ArrayList<>(10);
-                list.add(new UserInfo("mark", 10));
-
-                Intent intent = new Intent(this, ParseParamsActivity.class);
-                intent.putExtra("name", "zhengwei");
-                intent.putExtra("attr", "worker");
-                intent.putExtra("array", new int[]{1, 2, 3, 4, 5});
-                intent.putExtra("userInfo", new UserInfo("justin", 30));
-                intent.putExtra("userInfos", new UserInfo[]{new UserInfo("justin", 29)});
-                intent.putParcelableArrayListExtra("userInfoList", list);
-                startActivity(intent);
-
+                text = "Button 1 click";
                 break;
             case R.id.btn2:
-                text = "btn2 click";
-                startActivity(new Intent(this, InjectClickEventActivity.class));
+                text = "Button 2 click";
                 break;
         }
 
