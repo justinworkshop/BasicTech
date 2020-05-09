@@ -3,14 +3,18 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
+
+
     defaultConfig {
-        applicationId "com.example.basictech"
-        minSdkVersion 21
+        applicationId "com.example.jetpack"
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -18,18 +22,19 @@ android {
         }
     }
 
-    compileOptions{
-        sourceCompatibility = "1.8"
-        targetCompatibility = "1.8"
+    dataBinding{
+        enabled true
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation("com.squareup.okhttp3:okhttp:3.9.0")
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
 }
