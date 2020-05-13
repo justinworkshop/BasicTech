@@ -1,4 +1,4 @@
-package com.example.view;
+package com.example.view.touch;
 
 import android.content.Context;
 import android.graphics.Canvas;

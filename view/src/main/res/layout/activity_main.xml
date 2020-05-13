@@ -12,32 +12,32 @@
         android:orientation="vertical"
         android:padding="50dp">
 
-        <com.example.view.CaptureView
+        <com.example.view.touch.CaptureView
             android:layout_width="match_parent"
             android:layout_height="600dp"
             android:background="@color/colorAccent" />
 
-        <com.example.view.CaptureView
+        <com.example.view.touch.CaptureView
             android:layout_width="match_parent"
             android:layout_height="600dp"
             android:background="@color/colorAccent" />
 
-        <com.example.view.CaptureView
+        <com.example.view.touch.CaptureView
             android:layout_width="match_parent"
             android:layout_height="600dp"
             android:background="@color/colorAccent" />
 
-        <com.example.view.CaptureView
+        <com.example.view.touch.CaptureView
             android:layout_width="match_parent"
             android:layout_height="600dp"
             android:background="@color/colorAccent" />
 
-        <com.example.view.CaptureView
+        <com.example.view.touch.CaptureView
             android:layout_width="match_parent"
             android:layout_height="600dp"
             android:background="@color/colorAccent" />
 
-        <com.example.view.CaptureView
+        <com.example.view.touch.CaptureView
             android:layout_width="match_parent"
             android:layout_height="600dp"
             android:background="@color/colorAccent" />
