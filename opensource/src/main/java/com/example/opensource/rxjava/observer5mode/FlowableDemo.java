@@ -20,20 +20,21 @@ public class FlowableDemo {
         Flowable.create(new FlowableOnSubscribe<String>() {
             @Override
             public void subscribe(FlowableEmitter<String> emitter) throws Exception {
-                emitter.onNext("Test back pressure");
                 System.out.println("Flowable Thread:" + Thread.currentThread().getName());
+                emitter.onNext("Test back pressure");
             }
         }, BackpressureStrategy.BUFFER).map(new Function<String, String>() {
             @Override
             public String apply(String s) throws Exception {
                 return s + "---map";
             }
-        }).subscribe(new Consumer<String>() {
-            @Override
-            public void accept(String s) throws Exception {
-                System.out.println("Subscribe Thread:" + Thread.currentThread().getName());
-                System.out.println(s);
-            }
-        });
+        }).observeOn(Schedulers.computation())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        System.out.println("Subscribe Thread:" + Thread.currentThread().getName());
+                        System.out.println(s);
+                    }
+                });
     }
 }
