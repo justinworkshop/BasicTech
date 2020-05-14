@@ -6,6 +6,7 @@ import io.reactivex.FlowableEmitter;
 import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Copyright (C), 2016-2020
@@ -20,6 +21,7 @@ public class FlowableDemo {
             @Override
             public void subscribe(FlowableEmitter<String> emitter) throws Exception {
                 emitter.onNext("Test back pressure");
+                System.out.println("Flowable Thread:" + Thread.currentThread().getName());
             }
         }, BackpressureStrategy.BUFFER).map(new Function<String, String>() {
             @Override
@@ -29,6 +31,7 @@ public class FlowableDemo {
         }).subscribe(new Consumer<String>() {
             @Override
             public void accept(String s) throws Exception {
+                System.out.println("Subscribe Thread:" + Thread.currentThread().getName());
                 System.out.println(s);
             }
         });
