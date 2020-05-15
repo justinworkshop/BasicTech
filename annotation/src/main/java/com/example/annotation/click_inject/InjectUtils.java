@@ -26,13 +26,19 @@ public class InjectUtils {
         Class<? extends Activity> clazz = target.getClass();
         Method[] declaredMethods = clazz.getDeclaredMethods();
         for (Method method : declaredMethods) {
+
             // 获取方法上所有注解
             Annotation[] annotations = method.getAnnotations();
+            System.out.println("method: " + method.getName() + ", annotationSize: " + annotations.length);
+
             for (Annotation annotation : annotations) {
                 // 注解类型
                 Class<? extends Annotation> annotationType = annotation.annotationType();
+
                 if (annotationType.isAnnotationPresent(EventType.class)) {
                     EventType eventType = annotationType.getAnnotation(EventType.class);
+                    System.out.println("Filter annotation: " + annotation);
+
                     // 获取元注解中定义的值
                     Class listenerType = eventType.listenerType();
                     String listenerSetter = eventType.listenerSetter();
@@ -45,12 +51,13 @@ public class InjectUtils {
                         method.setAccessible(true);
                         ListenerInvocationHandler listenerInvocationHandler = new ListenerInvocationHandler(method, target);
                         Object listenerProxy = Proxy.newProxyInstance(target.getClassLoader(), new Class[]{listenerType}, listenerInvocationHandler);
+
                         for (int id : ids) {
                             View view = target.findViewById(id);
                             // 反射获取方法:setOnClickListener/setOnLongClickListener
-                            Method setter = view.getClass().getMethod(listenerSetter, listenerType);
+                            Method setterMethod = view.getClass().getMethod(listenerSetter, listenerType);
                             // 动态代理执行方法:setOnClickListener/setOnLongClickListener
-                            setter.invoke(view, listenerProxy);
+                            setterMethod.invoke(view, listenerProxy);
                         }
 
                     } catch (Exception e) {
