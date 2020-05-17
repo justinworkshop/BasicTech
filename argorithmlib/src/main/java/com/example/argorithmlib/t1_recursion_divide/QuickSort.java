@@ -1,4 +1,4 @@
-package com.example.argorithmlib.t1_dg_and_fz;
+package com.example.argorithmlib.t1_recursion_divide;
 
 /**
  * Copyright (C), 2016-2020
