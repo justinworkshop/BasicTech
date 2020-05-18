@@ -1,10 +1,16 @@
 package com.example.opensource;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
+import androidx.annotation.MainThread;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.opensource.rxjava.RxBus;
+
 import java.util.concurrent.TimeUnit;
+
+import javax.security.auth.Subject;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -57,6 +63,25 @@ public class MainActivity extends AppCompatActivity {
 
         // 3.观察者订阅被观察者
         observable.subscribe(observer);
+
+        testRxBus();
     }
 
+    private void testRxBus(){
+        RxBus.getInstance().post("Hello RxBus");
+
+        RxBus.getInstance().toObservable(String.class).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                System.out.println(s);
+                Toast.makeText(MainActivity.this, s, Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }
