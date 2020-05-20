@@ -76,7 +76,6 @@ public class FlowLayout extends ViewGroup {
             Rect rect = (Rect) getChildAt(i).getTag();
             child.layout(rect.left, rect.top, rect.right, rect.bottom);
         }
-
     }
 
     /**
