@@ -18,8 +18,9 @@ public class DynamicProxyTest {
         DynamicProxy dynamicProxy = new DynamicProxy(hello);
 //        IHello proxyInstance = (IHello) Proxy.newProxyInstance(hello.getClass().getClassLoader(), hello.getClass().getInterfaces(), dynamicProxy);
 
-        IHello proxyInstance = (IHello) dynamicProxy.bind();
+        IHello proxyInstance = (IHello) dynamicProxy.getProxyInstance();
         proxyInstance.sayHello();
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
     }
 
     interface IHello {
@@ -41,7 +42,7 @@ public class DynamicProxyTest {
             this.originalObject = originalObject;
         }
 
-        public Object bind(){
+        public Object getProxyInstance(){
             return Proxy.newProxyInstance(originalObject.getClass().getClassLoader(), originalObject.getClass().getInterfaces(), this);
         }
 
