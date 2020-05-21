@@ -22,9 +22,8 @@ public class MMKVActivity extends AppCompatActivity {
         String initialize = MMKV.initialize(this);
         System.out.println(initialize+", pageSize: " +MMKV.pageSize());
 
-        MMKV mmkv = MMKV.mmkvWithAshmemFD("id", MMKV.MULTI_PROCESS_MODE)
+        MMKV mmkv = MMKV.mmkvWithID("id", MMKV.MULTI_PROCESS_MODE);
         mmkv.encode("int", 111);
-        mmkv.putBoolean()
 
 
     }
