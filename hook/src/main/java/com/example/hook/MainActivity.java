@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hook.hook.HookHelper;
 
+/**
+ * Hook调用为注册的Activity
+ */
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "HookDemo";
 
@@ -20,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startTarget(View view) {
-        Log.i(TAG, "startTarget  SDK INT: "+ Build.VERSION.SDK_INT);
+        Log.i(TAG, "startTarget  SDK INT: " + Build.VERSION.SDK_INT);
         HookHelper.hookIActivityManager();
         HookHelper.hookHandler();
 
