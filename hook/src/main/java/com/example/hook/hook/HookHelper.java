@@ -49,7 +49,7 @@ public class HookHelper {
             }
 
             gDefaultField.setAccessible(true);
-            // 用于获取IActivityManager对象，即rawIActivityManager
+            // 获取Singleton<IActivityManager>, 用于后面获取IActivityManager对象，即rawIActivityManager
             Object gDefault = gDefaultField.get(null);
 
             // 拿到Singleton的Class对象
