@@ -38,18 +38,18 @@ public class HookHelper {
         try {
             Field gDefaultField = null;
 
-            // 8.0以上版本，包括8.0
+            // 8.0以上版本，包括8.0 AM.getService() -> IActivityManagerSingleton
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 Class<?> activityManager = Class.forName("android.app.ActivityManager");
                 gDefaultField = activityManager.getDeclaredField("IActivityManagerSingleton");
             } else {
-                // 8.0以下版本
+                // 8.0以下版本 AMN.getDefault() -> gDefault
                 Class<?> activityManager = Class.forName("android.app.ActivityManagerNative");
                 gDefaultField = activityManager.getDeclaredField("gDefault");
             }
 
             gDefaultField.setAccessible(true);
-            // 获取Singleton<IActivityManager>, 用于后面获取IActivityManager对象，即rawIActivityManager
+            // 1.获取Singleton<IActivityManager>, 用于后面获取IActivityManager对象，即步骤2
             Object gDefault = gDefaultField.get(null);
 
             // 拿到Singleton的Class对象
@@ -57,13 +57,13 @@ public class HookHelper {
             Field mInstanceField = singletonClass.getDeclaredField("mInstance");
             mInstanceField.setAccessible(true);
 
-            // 获取ActivityManagerNative里面的gDefault对象里面的原始的IActivityManager对象
+            // 2.获取ActivityManagerNative里面的gDefault对象里面的原始的IActivityManager对象
             final Object rawIActivityManager = mInstanceField.get(gDefault);
 
             // 需要改变IActivityManager#startActivity(....) 方法中的intent参数，用动态代理的方式实现
             Class<?> iActivityManagerInterface = Class.forName("android.app.IActivityManager");
 
-            // 动态代理 -> 改变startActivity方法的intent参数(不直接跳到未注册的target，而是先跳到已经注册的stub)
+            // 3.动态代理 -> 改变startActivity方法的intent参数(不直接跳到未注册的target，而是先跳到已经注册的stub)
             ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
             Object proxy = Proxy.newProxyInstance(classLoader, new Class[]{iActivityManagerInterface}, new InvocationHandler() {
                 @Override
@@ -98,7 +98,7 @@ public class HookHelper {
                 }
             });
 
-            // 把代理对象融入到framework
+            // 4.把代理对象融入到framework
             mInstanceField.set(gDefault, proxy);
         } catch (Exception e) {
             e.printStackTrace();
