@@ -90,6 +90,7 @@ public class HookHelper {
                         String stubPackage = "com.example.hook";
                         stubIntent.setComponent(new ComponentName(stubPackage, StubActivity.class.getName()));
                         stubIntent.putExtra(EXTRA_TARGET_INTENT, rawIntent);
+                        // 替换跳转的intent，目标是跳到target，但是其未注册，所以先暂时跳到stub，用于通过ams的安全性检查
                         args[intendArgIndex] = stubIntent;
 
                         Log.i(TAG, "invoke: stub intent = " + stubIntent);
@@ -182,7 +183,9 @@ public class HookHelper {
                         }
                         break;
                     }
+
                     mH.handleMessage(msg);
+
                     return true;
                 }
             });
