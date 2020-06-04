@@ -20,7 +20,7 @@ public class MMKVActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         String initialize = MMKV.initialize(this);
-        System.out.println(initialize+", pageSize: " +MMKV.pageSize());
+        System.out.println(initialize + ", pageSize: " + MMKV.pageSize());
 
         MMKV mmkv = MMKV.mmkvWithID("id", MMKV.MULTI_PROCESS_MODE);
         mmkv.encode("int", 111);
@@ -33,6 +33,6 @@ public class MMKVActivity extends AppCompatActivity {
         super.onResume();
 
         MMKV mmkv = MMKV.defaultMMKV();
-        System.out.println("mmkv:"+mmkv.decodeInt("int"));
+        System.out.println("mmkv:" + mmkv.decodeInt("int"));
     }
 }
