@@ -23,19 +23,19 @@ public class MyLinkedList {
         System.out.println("Order seq:");
         myLinkedList.printLinkedNode();
 
+        System.out.println("Reverse linked list");
+        myLinkedList.head = LinkedListUtils.reverseIteratively(myLinkedList.head);
+
+        myLinkedList.printLinkedNode();
+
+        LinkedListUtils.printReverse(myLinkedList.head);
+
+        LinkedListUtils.searchMiddleNode(myLinkedList.head);
+
     }
 
     private Node head;
     private int length;
-
-    static class Node {
-        public Node next;
-        public int value;
-
-        public Node(int value) {
-            this.value = value;
-        }
-    }
 
     public void addNode(int d) {
         Node node = new Node(d);
