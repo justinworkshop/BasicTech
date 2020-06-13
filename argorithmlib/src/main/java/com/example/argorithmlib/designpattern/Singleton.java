@@ -1,4 +1,4 @@
-package com.example.argorithmlib.test;
+package com.example.argorithmlib.designpattern;
 
 import java.io.ObjectStreamException;
 import java.util.HashMap;
