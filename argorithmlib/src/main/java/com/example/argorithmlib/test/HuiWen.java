@@ -1,4 +1,4 @@
-package com.example.view;
+package com.example.argorithmlib.test;
 
 /**
  * Copyright (C), 2016-2020
