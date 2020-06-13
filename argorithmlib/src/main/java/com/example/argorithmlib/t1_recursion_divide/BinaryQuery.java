@@ -10,10 +10,39 @@ import java.lang.reflect.Array;
  * Description: 二分查找
  */
 public class BinaryQuery {
+
+    public static void main(String[] args) {
+        int[] arr = buildArray();
+        printArray(arr);
+
+        int index = binaryQuery(arr, 6);
+        System.out.println("index: " + index);
+
+        int[] result = binaryInsert(arr, 406);
+        printArray(result);
+    }
+
+    public static int[] buildArray() {
+        int[] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i * 5;
+        }
+        return arr;
+    }
+
+    public static void printArray(int[] arr) {
+        System.out.print("size: " + arr.length + ", array: ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(" " + arr[i]);
+        }
+
+        System.out.println();
+    }
+
     public static int binaryQuery(int[] arr, int num) {
-        int start = -1;
+        int start = 0;
         int end = arr.length - 1;
-        int objIndex = -1;
+        int resultIndex = -1;
 
         while (start <= end) {
             int mid = (start + end) / 2;
@@ -22,12 +51,12 @@ public class BinaryQuery {
             } else if (num < arr[mid]) {
                 end = mid - 1;
             } else {
-                objIndex = mid;
+                resultIndex = mid;
                 break;
             }
         }
 
-        return objIndex;
+        return resultIndex;
     }
 
     public static int[] binaryInsert(int[] arr, int value) {
@@ -53,49 +82,27 @@ public class BinaryQuery {
                     break;
                 }
             }
-
         }
 
+        if (mid >= arr.length) {
+            mid = mid - 1;
+        }
 
         System.out.println("objIndex: " + objIndex + ", mid: " + mid);
 
-        if (objIndex != -1) {
-            arr[objIndex] = value;
-            return arr;
-        } else {
-            int newArray[] = (int[]) Array.newInstance(arr.getClass().getComponentType(), arr.length + 1);
-            System.arraycopy(arr, 0, newArray, 0, mid);
+        int newArray[] = (int[]) Array.newInstance(arr.getClass().getComponentType(), arr.length + 1);
+        if (value < arr[mid]) {
+            // 小于插在前
             newArray[mid] = value;
+            System.arraycopy(arr, 0, newArray, 0, mid);
             System.arraycopy(arr, mid, newArray, mid + 1, arr.length - mid);
-            return newArray;
-        }
-    }
-
-    public static int[] buildArray() {
-        int[] arr = new int[10];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = i * 5;
-        }
-        return arr;
-    }
-
-    public static void printArray(int[] arr) {
-        System.out.print("size: " + arr.length + ", array: ");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(" " + arr[i]);
+        } else {
+            // 大于插在后
+            newArray[mid + 1] = value;
+            System.arraycopy(arr, 0, newArray, 0, mid + 1);
+            System.arraycopy(arr, mid + 1, newArray, mid + 2, arr.length - mid - 1);
         }
 
-        System.out.println();
-    }
-
-    public static void main(String[] args) {
-        int[] arr = buildArray();
-        printArray(arr);
-
-//        int index = binaryQuery(arr, 6);
-//        System.out.println("index: " + index);
-
-        int[] result = binaryInsert(arr, 31);
-        printArray(result);
+        return newArray;
     }
 }
