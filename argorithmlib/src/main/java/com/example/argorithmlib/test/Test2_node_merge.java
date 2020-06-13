@@ -2,12 +2,12 @@ package com.example.argorithmlib.test;
 
 /**
  * Copyright (C), 2016-2020
- * FileName: Test2
+ * FileName: Test2_node_merge
  * Author: zhengwei
  * Date: 2020-06-07 18:57
  * Description:
  */
-public class Test2 {
+public class Test2_node_merge {
     public static void main(String[] args) {
         int[] a = {1, 3, 6};
         int[] b = {4, 6, 7, 8};

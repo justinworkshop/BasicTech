@@ -2,12 +2,12 @@ package com.example.argorithmlib.test;
 
 /**
  * Copyright (C), 2016-2020
- * FileName: Test1
+ * FileName: Test1_node_reverse
  * Author: zhengwei
  * Date: 2020-06-13 20:29
  * Description:
  */
-public class Test1 {
+public class Test1_node_reverse {
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4};
         Node root = buildLinkedNode(array);
