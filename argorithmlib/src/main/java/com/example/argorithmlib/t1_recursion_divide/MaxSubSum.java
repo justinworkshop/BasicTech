@@ -17,7 +17,7 @@ public class MaxSubSum {
 
     private static void getMaxSubSum(int[] array) {
         int start = 0;
-        int end = array.length - 1;
+        int end = 0;
         int maxSubSum = Integer.MIN_VALUE;
 
         for (int i = 0; i < array.length; i++) {
