@@ -2,12 +2,12 @@ package com.example.argorithmlib.test;
 
 /**
  * Copyright (C), 2016-2020
- * FileName: Test3
+ * FileName: Test3_hw_1
  * Author: zhengwei
  * Date: 2020-06-13 21:44
  * Description:
  */
-public class Test3 {
+public class Test3_hw_1 {
     public static void main(String[] args) {
         String text = "aaabbaccbababac";
 
