@@ -2,13 +2,13 @@ package com.example.argorithmlib.test;
 
 /**
  * Copyright (C), 2016-2020
- * FileName: Test3_hw_2
+ * FileName: Test_hw_2
  * Author: zhengwei
  * Date: 2020-06-09 10:38
  * Description:要求：不参考资料/API实现，不超过1小时
  * 算法实现：在大文本中查找最长的回文串（该字符串反序之后同原字符串一样），并返回（如果没有返回Null）【测试用例：aaabbaccbababac，返回babab】
  */
-public class Test3_hw_2 {
+public class Test_hw_2 {
     public static void main(String[] args) {
         String content = "aaabbaccbababac";
         getHuiWenString(content);
