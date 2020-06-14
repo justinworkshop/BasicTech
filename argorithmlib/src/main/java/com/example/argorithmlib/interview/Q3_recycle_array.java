@@ -11,7 +11,8 @@ public class Q3_recycle_array {
     public static void main(String[] args) {
         int[] array = {50, 52, 63, 64, 65, 68, 88, 90, 98, 3, 8, 15, 44, 45, 46, 49};
 
-        System.out.println("min value: " + findMaxInArray(array, 0, array.length - 1));
+        System.out.println("min value: " + findMinInArray(array, 0, array.length - 1));
+        System.out.println("max value: " + findMaxInArray(array, 0, array.length - 1));
     }
 
     private static int findMinInArray(int[] array, int left, int right) {

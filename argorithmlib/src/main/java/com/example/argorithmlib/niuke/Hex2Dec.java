@@ -16,8 +16,11 @@ public class Hex2Dec {
         String s;
         while (scanner.hasNext()) {
             s = scanner.next();
-            int dexValue = getDexValue(s, 16);
+            int dexValue = getDexValue(s, 2);
             System.out.println(String.valueOf(dexValue));
+
+            x2y(s, 2);
+
         }
 
         scanner.close();
@@ -43,5 +46,19 @@ public class Hex2Dec {
         }
 
         return result;
+    }
+
+    private static String x2y(String s, int format) {
+        int dexValue = getDexValue(s, 10);
+        System.out.println("dexValue: " + dexValue);
+
+        StringBuilder res = new StringBuilder();
+        while (dexValue > 0) {
+            res.append(dexValue % format);
+            dexValue = dexValue / format;
+        }
+
+        System.out.println("y format: " + res.reverse().toString());
+        return res.toString();
     }
 }

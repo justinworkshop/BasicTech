@@ -10,7 +10,7 @@ package com.example.argorithmlib.interview;
 public class Q1_merge_node {
     public static void main(String[] args) {
 
-        LinkNode[] nodeArray1 = {new LinkNode(1), new LinkNode(3), new LinkNode(5)};
+        LinkNode[] nodeArray1 = {new LinkNode(1), new LinkNode(3), new LinkNode(5), new LinkNode(7)};
         LinkNode[] nodeArray2 = {new LinkNode(2), new LinkNode(4)};
         LinkNode node1 = createLinkNode(nodeArray1);
         LinkNode node2 = createLinkNode(nodeArray2);
@@ -18,9 +18,6 @@ public class Q1_merge_node {
         printLinkNode(node1);
         printLinkNode(node2);
 
-        node1.merge(node2);
-        printLinkNode(node2
-        );
 
         printLinkNode(mergeLinkNode(node1, node2));
 
@@ -32,10 +29,6 @@ public class Q1_merge_node {
 
         public LinkNode(int val) {
             this.val = val;
-        }
-
-        private void merge(LinkNode node) {
-            this.next = mergeLinkNode(this, node);
         }
 
     }

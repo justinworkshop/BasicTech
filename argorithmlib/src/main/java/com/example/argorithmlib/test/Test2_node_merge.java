@@ -32,26 +32,19 @@ public class Test2_node_merge {
     }
 
     public static Node mergeNode(Node nodeA, Node nodeB) {
-        Node head = null;
-        if (nodeA.value <= nodeB.value) {
-            head = nodeA;
-        } else {
-            head = nodeB;
-        }
+        Node head = new Node(0);
         Node headTemp = head;
 
         while (nodeA != null && nodeB != null) {
-            Node temp;
 
             if (nodeA.value <= nodeB.value) {
-                temp = nodeA;
+                head.next = nodeA;
                 nodeA = nodeA.next;
             } else {
-                temp = nodeB;
+                head.next = nodeB;
                 nodeB = nodeB.next;
             }
 
-            head.next = temp;
             head = head.next;
         }
 
@@ -63,7 +56,7 @@ public class Test2_node_merge {
             head.next = nodeB;
         }
 
-        return headTemp;
+        return headTemp.next;
     }
 
     public static Node buildLinkedNode(int[] arr) {
