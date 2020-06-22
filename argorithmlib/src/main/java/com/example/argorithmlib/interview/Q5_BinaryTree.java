@@ -15,7 +15,7 @@ public class Q5_BinaryTree {
         binaryTree.buildTree(data);
 
         System.out.print("Middle order: ");
-        binaryTree.midOrder(binaryTree.root);
+        binaryTree.inOrder(binaryTree.root);
         System.out.println();
 
         System.out.print("Pre order: ");
@@ -79,11 +79,11 @@ public class Q5_BinaryTree {
             }
         }
 
-        public void midOrder(Node localRoot) {
+        public void inOrder(Node localRoot) {
             if (localRoot != null) {
-                midOrder(localRoot.left);
+                inOrder(localRoot.left);
                 System.out.print(localRoot.data + " ");
-                midOrder(localRoot.right);
+                inOrder(localRoot.right);
             }
         }
 
