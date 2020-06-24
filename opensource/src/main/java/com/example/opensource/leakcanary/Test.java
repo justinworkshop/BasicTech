@@ -14,8 +14,12 @@ import java.lang.ref.WeakReference;
 public class Test {
 
     public static void main(String[] args) {
-        Test test = new Test();
-        test.testLeak();
+        try {
+            test1();
+            test2();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void testLeak() {
@@ -45,5 +49,52 @@ public class Test {
             System.out.println(ref + " in queue");
         } while (ref != null);
 
+    }
+
+    private static void test1() throws InterruptedException {
+        ReferenceQueue referenceQueue = new ReferenceQueue();
+
+        Object object = new Object();
+        WeakReference weakReference = new WeakReference(object, referenceQueue);
+
+        System.out.println("Before GC, ref: " + weakReference.get());
+        System.out.println("Before GC, queue: " + referenceQueue.poll());
+
+        Runtime.getRuntime().gc();
+        Thread.sleep(300);
+
+        System.out.println("-----");
+
+        System.out.println("After GC, ref: " + weakReference.get());
+        System.out.println("After GC, queue: " + referenceQueue.poll());
+    }
+
+    private static void test2() throws InterruptedException {
+        ReferenceQueue referenceQueue = new ReferenceQueue();
+
+        WeakReference weakReference = new WeakReference(new Object(), referenceQueue);
+
+        System.out.println("Before GC, ref: " + weakReference.get());
+        System.out.println("Before GC, queue: " + referenceQueue.poll());
+
+        Runtime.getRuntime().gc();
+        Thread.sleep(300);
+
+        System.out.println("-----");
+
+        System.out.println("After GC, ref: " + weakReference.get());
+        System.out.println("After GC, queue: " + referenceQueue.poll());
+    }
+
+    private static void printRefQueue(ReferenceQueue queue) {
+        Reference reference;
+        while (queue != null) {
+            reference = queue.poll();
+            if (reference != null) {
+                System.out.println(reference);
+            } else {
+                break;
+            }
+        }
     }
 }
