@@ -1,7 +1,5 @@
 package com.example.basictech;
 
-import com.example.basictech.algorithm.QuickSort;
-
 import org.junit.Test;
 
 import static org.junit.Assert.*;
