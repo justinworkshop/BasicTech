@@ -43,6 +43,12 @@ public class HotFix {
             System.arraycopy(patchElements, 0, newElements, 0, patchElements.length);
             System.arraycopy(dexElements, 0, newElements, patchElements.length, dexElements.length);
             dexElementsField.set(pathList, newElements);
+
+            for (Object o : newElements) {
+                System.out.println(o);
+            }
+
+            System.out.println("install success ");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("installPatch exception: " + e.getMessage());

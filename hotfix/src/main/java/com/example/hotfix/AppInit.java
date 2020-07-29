@@ -19,7 +19,9 @@ public class AppInit extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
 
-        File file = new File("/sdcard/aa/patch.jar");
-        HotFix.installPatch(this, file);
+        File file = new File("/sdcard/patch.dex");
+        if (file.exists()) {
+            HotFix.installPatch(this, file);
+        }
     }
 }
