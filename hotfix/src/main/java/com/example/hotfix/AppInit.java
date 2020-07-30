@@ -21,5 +21,6 @@ public class AppInit extends Application {
 
         File file = new File("/sdcard/aa/patch.jar");
         HotFix.installPatch(this, file);
+        System.out.println("Install patch end");
     }
 }
