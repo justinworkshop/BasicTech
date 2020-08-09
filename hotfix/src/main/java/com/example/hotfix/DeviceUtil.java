@@ -15,5 +15,6 @@ public class DeviceUtil {
 //        add log2
 //        add log3
 //        add 1
+//        add 2
     }
 }
