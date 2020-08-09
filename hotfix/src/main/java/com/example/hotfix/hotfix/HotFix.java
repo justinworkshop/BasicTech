@@ -31,10 +31,10 @@ public class HotFix {
             files.add(patch);
             File fileDir = context.getFilesDir();
             List<IOException> suppressedExceptionList = new ArrayList<IOException>();
-            // 反射执行makeDexElements方法
+            // 反射执行makeDexElements方法 (补丁包的Element[])
             Object[] patchElements = (Object[]) makeDexElements.invoke(null, files, fileDir, suppressedExceptionList, classLoader);
 
-            // 3.2 获得pathList的dexElements属性
+            // 3.2 获得pathList的dexElements属性 (宿主的Element[])
             Field dexElementsField = ReflectUtil.getField(pathList, "dexElements");
             Object[] dexElements = (Object[]) dexElementsField.get(pathList);
 
@@ -42,6 +42,7 @@ public class HotFix {
             Object[] newElements = (Object[]) Array.newInstance(dexElements[0].getClass(), patchElements.length + dexElements.length);
             System.arraycopy(patchElements, 0, newElements, 0, patchElements.length);
             System.arraycopy(dexElements, 0, newElements, patchElements.length, dexElements.length);
+            // 将合并后的Element[]赋值给宿主的pathList对象
             dexElementsField.set(pathList, newElements);
 
             for (Object o : newElements) {
