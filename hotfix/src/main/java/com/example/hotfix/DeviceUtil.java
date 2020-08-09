@@ -12,5 +12,6 @@ public class DeviceUtil {
 //        throw new IllegalArgumentException("getDeviceInfo error!");
         System.out.println("Android device.");
 //        add log1
+//        add log2
     }
 }
