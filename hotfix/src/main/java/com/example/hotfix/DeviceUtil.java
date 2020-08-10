@@ -14,5 +14,6 @@ public class DeviceUtil {
     public static void getDeviceInfo(Context context) {
 //        throw new IllegalArgumentException("getDeviceInfo error!");
         Toast.makeText(context, "HUA WEI device.", Toast.LENGTH_LONG).show();
+        // add log test merge
     }
 }
