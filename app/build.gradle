@@ -1,5 +1,12 @@
 apply plugin: 'com.android.application'
 
+//apply plugin: 'com.example.jiagu' /*这里是properties的文件名*/
+//
+//JiaGuExt {
+//    userName 'zhengwei'
+//    userPwd '123456'
+//}
+
 android {
     compileSdkVersion 28
     buildToolsVersion "29.0.3"

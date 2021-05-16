@@ -1,3 +1,4 @@
+include ':gradleplugin'
 include ':robolectric'
 include ':junit'
 include ':app', ':argorithmlib', ':annotation', ':jetpack', ':view', ':opensource', ':bitmap', ':hook', ':plugin_host', ':plugin_unit', ':crash', ':multiprocess', ':hotfix'

@@ -1,0 +1,30 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //依赖gradle
+    implementation gradleApi()
+    //依赖Android gradle插件
+    implementation 'com.android.tools.build:gradle:3.5.3'
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+//其他项目classpath:groupId:artifactId:version
+//发布到本地仓库.m2/repository/com/example/JiaGu/1.0
+
+apply plugin: 'maven-publish'
+publishing {
+    publications {
+        JiaGuPlugin(MavenPublication) {
+            from components.java
+            groupId 'com.example'
+            artifactId 'JiaGu'
+            version '1.0'
+        }
+    }
+}

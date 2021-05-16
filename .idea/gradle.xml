@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/argorithmlib" />
             <option value="$PROJECT_DIR$/bitmap" />
             <option value="$PROJECT_DIR$/crash" />
+            <option value="$PROJECT_DIR$/gradleplugin" />
             <option value="$PROJECT_DIR$/hook" />
             <option value="$PROJECT_DIR$/hotfix" />
             <option value="$PROJECT_DIR$/jetpack" />
