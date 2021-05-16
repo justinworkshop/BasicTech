@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import com.example.mvvm.bean.Account;
 import com.example.mvvm.databinding.ActivityMainBinding;
+import com.example.mvvm.viewmodel.AccountViewModel;
 
 /**
  * DataBinding使用3个步骤
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         account.setLevel(100);
         binding.setAccount(account);
         binding.setActivity(this);
+        binding.setAccountViewModel(new AccountViewModel());
     }
 
     public void onBtnClick(View view) {

@@ -12,6 +12,10 @@
             name="activity"
             type="com.example.mvvm.MainActivity" />
 
+        <variable
+            name="accountViewModel"
+            type="com.example.mvvm.viewmodel.AccountViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,6 +33,35 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_info" />
+
+        <Button
+            android:id="@+id/btn_query"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:onClick="@{accountViewModel.onQuery}"
+            android:text="查询用户等级"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_addLevel" />
+
+        <EditText
+            android:id="@+id/et_user_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={accountViewModel.userInput}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{accountViewModel.userInput + '|' + accountViewModel.level}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_user_input" />
 
         <TextView
             android:id="@+id/tv_info"
