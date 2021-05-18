@@ -2,14 +2,12 @@ package com.example.jetpack;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
-import androidx.annotation.MainThread;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 
-import com.example.jetpack.lefecycle.LifecycleIPresenter;
-import com.example.jetpack.lefecycle.MainPresenter;
+import com.example.jetpack.lefecycle.presenter.LifecycleIPresenter;
+import com.example.jetpack.lefecycle.presenter.MainPresenter;
 import com.example.jetpack.livedata.LiveDataBus;
 
 import java.util.concurrent.ExecutorService;

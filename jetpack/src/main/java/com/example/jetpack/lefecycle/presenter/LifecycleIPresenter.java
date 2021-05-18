@@ -1,4 +1,4 @@
-package com.example.jetpack.lefecycle;
+package com.example.jetpack.lefecycle.presenter;
 
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
