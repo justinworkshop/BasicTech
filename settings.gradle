@@ -1,3 +1,4 @@
+include ':hiltdemo'
 include ':mvvm'
 include ':gradleplugin'
 include ':robolectric'
