@@ -1,7 +1,10 @@
 package com.example.dagger2demo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.dagger2demo.component.DaggerMyComponent;
 import com.example.dagger2demo.module.DatabaseModule;
@@ -21,7 +24,7 @@ import javax.inject.Inject;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "Dagger";
+    public static final String TAG = "Dagger";
 
     @Inject
     HttpObject httpObject;
@@ -34,16 +37,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.tv_msg_info).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SecondActivity.class));
+            }
+        });
+
         DaggerMyComponent.create().injectMainActivity(this);
         Log.i(TAG, "HttpObject hashCode: " + httpObject.hashCode());
         Log.i(TAG, "HttpObject1 hashCode: " + httpObject1.hashCode());
         Log.i(TAG, "DatabaseObject hashCode: " + databaseObject.hashCode());
 
-        DaggerMyComponent.builder()
-                .httpModule(new HttpModule())
-                .databaseModule(new DatabaseModule())
-                .build()
-                .injectMainActivity(this);
+        ((BaseApplication)getApplication()).getAppMyComponent().injectMainActivity(this);
 
         Log.i(TAG, "----->");
         Log.i(TAG, "HttpObject hashCode: " + httpObject.hashCode());
