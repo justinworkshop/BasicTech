@@ -1,3 +1,4 @@
+include ':dagger2demo'
 include ':hiltdemo'
 include ':mvvm'
 include ':gradleplugin'

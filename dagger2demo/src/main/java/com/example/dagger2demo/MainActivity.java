@@ -1,4 +1,4 @@
-package com.example.hiltdemo;
+package com.example.dagger2demo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
