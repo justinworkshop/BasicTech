@@ -3,6 +3,7 @@ package com.example.dagger2demo;
 import android.app.Application;
 import com.example.dagger2demo.component.DaggerMyComponent;
 import com.example.dagger2demo.component.MyComponent;
+import com.example.dagger2demo.di.DaggerPresenterComponent;
 import com.example.dagger2demo.module.DatabaseModule;
 import com.example.dagger2demo.module.HttpModule;
 
@@ -20,6 +21,7 @@ public class BaseApplication extends Application {
         myComponent = DaggerMyComponent.builder()
                 .httpModule(new HttpModule())
                 .databaseModule(new DatabaseModule())
+                .presenterComponent(DaggerPresenterComponent.create())
                 .build();
     }
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.dagger2demo.component.DaggerMyComponent;
+import com.example.dagger2demo.di.Presenter;
 import com.example.dagger2demo.module.DatabaseModule;
 import com.example.dagger2demo.module.HttpModule;
 import com.example.dagger2demo.object.DatabaseObject;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     HttpObject httpObject1;
     @Inject
     DatabaseObject databaseObject;
+    @Inject
+    Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        DaggerMyComponent.create().injectMainActivity(this);
-        Log.i(TAG, "HttpObject hashCode: " + httpObject.hashCode());
-        Log.i(TAG, "HttpObject1 hashCode: " + httpObject1.hashCode());
-        Log.i(TAG, "DatabaseObject hashCode: " + databaseObject.hashCode());
+//        DaggerMyComponent.create().injectMainActivity(this);
+//        Log.i(TAG, "HttpObject hashCode: " + httpObject.hashCode());
+//        Log.i(TAG, "HttpObject1 hashCode: " + httpObject1.hashCode());
+//        Log.i(TAG, "DatabaseObject hashCode: " + databaseObject.hashCode());
 
         ((BaseApplication)getApplication()).getAppMyComponent().injectMainActivity(this);
 
@@ -55,5 +58,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "HttpObject hashCode: " + httpObject.hashCode());
         Log.i(TAG, "HttpObject1 hashCode: " + httpObject1.hashCode());
         Log.i(TAG, "DatabaseObject hashCode: " + databaseObject.hashCode());
+
+        Log.i(TAG, "" + "presenter hashCode: " + presenter.hashCode());
     }
 }
