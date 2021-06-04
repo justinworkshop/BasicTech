@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+<!--    <com.example.pagdemoapp.BackgroundView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
+
+    <org.libpag.PAGView
+        android:id="@+id/pag_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <org.libpag.PAGView
+        android:id="@+id/bullet_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <org.libpag.PAGView
+        android:id="@+id/bullet_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <org.libpag.PAGView
+        android:id="@+id/bullet_3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/cannon_default"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/cannon_blue_default" />
+
+</FrameLayout>
