@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 倒计时背景氛围图 -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_countdown_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY" />
+
+    <!-- 守塔5s倒计时 -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_countdown_5_seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- 即将进入冲刺阶段 -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_ready_enter_advance_state"
+        android:layout_width="match_parent"
+        android:layout_height="44dp" />
+
+</FrameLayout>

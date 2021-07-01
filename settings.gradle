@@ -1,3 +1,4 @@
+include ':lottiedemo'
 include ':pagdemoapp'
 include ':pagdemo'
 include ':dagger2demo'
