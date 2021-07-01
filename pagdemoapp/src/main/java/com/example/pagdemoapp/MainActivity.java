@@ -7,11 +7,13 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import org.libpag.PAGComposition;
 import org.libpag.PAGFile;
 import org.libpag.PAGImage;
+import org.libpag.PAGScaleMode;
 import org.libpag.PAGText;
 import org.libpag.PAGView;
 import org.libpag.PAGView.PAGViewListener;
@@ -132,7 +134,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         PAGComposition composition = PAGComposition.Make(width, height);
         composition.addLayer(cannonPAGFile);
-//
+
+        cannonPAGView.setScaleMode(PAGScaleMode.LetterBox);
         cannonPAGView.setComposition(composition);
         cannonPAGView.setRepeatCount(1);
         cannonPAGView.addListener(new PAGViewListener() {

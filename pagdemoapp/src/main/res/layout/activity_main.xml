@@ -12,8 +12,9 @@
 
     <org.libpag.PAGView
         android:id="@+id/pag_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_gravity="right"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
 
     <org.libpag.PAGView
         android:id="@+id/bullet_1"
