@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- 倒计时背景氛围图 -->
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_countdown_bg"
+        android:background="#222222"
         android:layout_width="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:layout_height="match_parent"
         android:scaleType="fitXY" />
 
@@ -20,6 +26,7 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_ready_enter_advance_state"
         android:layout_width="match_parent"
-        android:layout_height="44dp" />
+        android:scaleType="fitXY"
+        android:layout_height="100dp" />
 
 </FrameLayout>
