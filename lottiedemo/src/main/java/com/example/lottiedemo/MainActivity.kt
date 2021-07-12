@@ -1,7 +1,9 @@
 package com.example.lottiedemo
 
+import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -10,6 +12,7 @@ import android.view.WindowManager
 import android.view.animation.LinearInterpolator
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.airbnb.lottie.LottieAnimationView
 
 class MainActivity : AppCompatActivity() {
@@ -81,7 +84,8 @@ class MainActivity : AppCompatActivity() {
         lottieViewCountDown.imageAssetsFolder = LottieFileConstants.COUNTDOWN_5_SECONDS_IMAGE_FOLDER
         lottieViewCountDown.setAnimation(LottieFileConstants.COUNTDOWN_5_SECONDS_ANIMATION_NAME)
         lottieViewCountDown.repeatCount = 0
-        playLottie(lottieViewCountDown, 5000, 0.5f)
+//        playLottie(lottieViewCountDown, 5000, 0.5f)
+        playLottie2(lottieViewCountDown, 5000, 0f)
     }
 
     private fun playBgLottie() {
@@ -96,7 +100,7 @@ class MainActivity : AppCompatActivity() {
     private fun playLottie(lottieAnimationView: LottieAnimationView, duration: Long, progress: Float) {
         lottieAnimationView.playAnimation()
         val animator = ObjectAnimator.ofFloat(0f, 1f).setDuration(duration)
-        animator.interpolator = LinearInterpolator()
+        animator.interpolator = CustomInterpolator()
         var p: Float
         animator.addUpdateListener { animation ->
             run {
@@ -109,6 +113,33 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        animator.start()
+    }
+
+    private fun playLottie2(lottieAnimationView: LottieAnimationView, duration: Long, progress: Float) {
+        lottieAnimationView.setBackgroundColor(Color.BLUE)
+        val animator = ObjectAnimator.ofFloat(lottieAnimationView, "alpha", 0f, 1f, 0f).setDuration(duration)
+        animator.interpolator = CustomInterpolator()
+        animator.duration = 5000
+        animator.addListener(object : Animator.AnimatorListener {
+
+            override fun onAnimationStart(animation: Animator?) {
+                lottieAnimationView.visibility = ConstraintLayout.VISIBLE
+            }
+
+            override fun onAnimationEnd(animation: Animator?) {
+                lottieAnimationView.visibility = ConstraintLayout.INVISIBLE
+            }
+
+            override fun onAnimationCancel(animation: Animator?) {
+                lottieAnimationView.visibility = ConstraintLayout.INVISIBLE
+            }
+
+            override fun onAnimationRepeat(animation: Animator?) {
+
+            }
+
+        })
         animator.start()
     }
 }
