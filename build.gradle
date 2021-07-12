@@ -17,6 +17,9 @@ buildscript {
         maven {
             url "https://mirrors.tencent.com/nexus/repository/maven-public"
         }
+        maven {
+            url 'https://mirrors.tencent.com/repository/maven/thirdparty/'
+        }
     }
 
     dependencies {
@@ -43,6 +46,9 @@ allprojects {
         }
         maven {
             url "https://mirrors.tencent.com/nexus/repository/maven-public"
+        }
+        maven {
+            url 'https://mirrors.tencent.com/repository/maven/thirdparty/'
         }
     }
 }

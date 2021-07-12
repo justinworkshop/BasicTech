@@ -31,6 +31,7 @@
             <option value="$PROJECT_DIR$/plugin_host" />
             <option value="$PROJECT_DIR$/plugin_unit" />
             <option value="$PROJECT_DIR$/robolectric" />
+            <option value="$PROJECT_DIR$/tps" />
             <option value="$PROJECT_DIR$/view" />
           </set>
         </option>
