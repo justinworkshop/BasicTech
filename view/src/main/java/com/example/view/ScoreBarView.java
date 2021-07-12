@@ -56,6 +56,7 @@ public class ScoreBarView extends View {
         mLeftPath.lineTo(150, 200);
         mLeftPath.close();
 
+        mLeftPath.reset();
         // 绘制左-下背景
         canvas.drawPath(mLeftPath, mBgPaint);
 
