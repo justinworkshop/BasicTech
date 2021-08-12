@@ -6,11 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试removeAllViews"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.example.view.ScoreBarView
         android:id="@+id/score_bar_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.view.customview.CustomFrameLayout
+        android:id="@+id/cfl"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <ImageView
+            android:id="@+id/cfl_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/cfl_text"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <com.example.view.customview.CustomLinearLayout
+            android:id="@+id/cfl_cll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/cll_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.example.view.customview.CustomLinearLayout>
+
+    </com.example.view.customview.CustomFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

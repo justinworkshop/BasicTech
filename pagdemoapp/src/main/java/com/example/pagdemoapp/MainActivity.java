@@ -164,13 +164,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     void initBullet(int width, int height) {
         PAGComposition composition1 = PAGComposition.Make(width, height);
-        PAGFile pagFile1 = PAGFile.Load(getAssets(), "bullet_level_1.pag");
+        PAGFile pagFile1 = PAGFile.Load(getAssets(), "bullet_blue_level_1.pag");
         pagFile1.setDuration(1);
 
-        PAGFile pagFile2 = PAGFile.Load(getAssets(), "bullet_level_2.pag");
+        PAGFile pagFile2 = PAGFile.Load(getAssets(), "bullet_blue_level_2.pag");
         pagFile2.setDuration(1);
 
-        PAGFile pagFile3 = PAGFile.Load(getAssets(), "bullet_level_3.pag");
+        PAGFile pagFile3 = PAGFile.Load(getAssets(), "bullet_blue_level_3.pag");
         pagFile3.setDuration(1);
 
         composition1.addLayer(pagFile1);
@@ -182,13 +182,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         composition3.addLayer(pagFile3);
 
         bulletPAGView1.setRepeatCount(1);
-        bulletPAGView1.setComposition(composition1);
+        bulletPAGView1.setPath("assets://bullet_blue_level_1.pag");
+//        bulletPAGView1.setComposition(composition1);
 
         bulletPAGView2.setRepeatCount(1);
-        bulletPAGView2.setComposition(composition2);
+        bulletPAGView2.setPath("assets://bullet_blue_level_2.pag");
+//        bulletPAGView2.setComposition(composition2);
 
         bulletPAGView3.setRepeatCount(1);
-        bulletPAGView3.setComposition(composition3);
+        bulletPAGView3.setPath("assets://bullet_blue_level_3.pag");
+//        bulletPAGView3.setComposition(composition3);
 
         bulletPAGView1.addListener(new PAGViewListener() {
             @Override
