@@ -1,3 +1,4 @@
+include ':frescodemo'
 include ':tps'
 include ':lottiedemo'
 include ':pagdemoapp'

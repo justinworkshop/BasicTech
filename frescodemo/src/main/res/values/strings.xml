@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FrescoDemo</string>
+    <string name="now_user_move_guide_content">原NOW直播已替换为QQ直播，检测到您在NOW直播里仍有部分金币、包裹礼物未使用，可移步至NOW直播独立APP上继续使用，不便之处，敬请原谅！</string>
+</resources>
